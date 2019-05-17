@@ -45,17 +45,9 @@ public class SalesForceService {
         logger.info("getting the id" +id);
         QueryResult result = null;
 
-        try{
-               if(id.length() == 15) {
-                   String query = "Select Id,ATC_File_Name__c, name, Client_SSN__c, Is_Client_Found__c, Account_Number__c,CreatedById, Status__c From ATC_Request__c where id= '" + id + "'";
-                   result = enterpriseConnection.query(query);
-                   logger.info("getting the records for id " + id);
-               }
-           }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-            logger.info(" id length is not correct");
-            }
+        String query = "Select Id,ATC_File_Name__c, name, Client_SSN__c, Is_Client_Found__c, Account_Number__c,CreatedById, Status__c From ATC_Request__c where id= '" + id + "'";
+        result = enterpriseConnection.query(query);
+        logger.info("getting the records for id " + id);
 
         return (ATC_Request__c) result.getRecords()[0];
     }
@@ -79,8 +71,7 @@ public class SalesForceService {
         return saveResults;
     }
 
-    //check given id valid or not..
-
+    //checking the given id is valid or not..
     public boolean checkValidIDorNOT(String id) throws Exception {
         EnterpriseConnection enterpriseConnection= getEnterpriseConnection() ;
         QueryResult queryResult;
