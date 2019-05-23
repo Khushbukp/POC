@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.service.SalesForceService;
 import com.sforce.soap.enterprise.SaveResult;
 import com.sforce.soap.enterprise.UpsertResult;
 import com.sforce.soap.enterprise.sobject.SObject;
@@ -62,7 +63,7 @@ public class DemoApplicationTests {
 	@Test
 	public void testUpsertOperation() throws Exception{
 		EnterpriseConnection enterpriseConnection= getEnterpriseConnection();
-		ATC_Request__c atc_request__c = null;
+		ATC_Request__c atc_request__c = new ATC_Request__c() ;
 		atc_request__c.setId("a3h2F000000Cml1");
 		atc_request__c.setStatus__c("success");
 
@@ -76,4 +77,27 @@ public class DemoApplicationTests {
 			}
 		}
 	}
+
+//	@Test
+//    public void testgetATCById() throws Exception{
+////        EnterpriseConnection enterpriseConnection= getEnterpriseConnection();
+//	    SalesForceService sfs = new SalesForceService();
+//
+//        ATC_Request__c atc_request__c = sfs.getATC("fhdfdsgfdsgh");
+//
+//        Assert.assertEquals(null,atc_request__c);
+//
+//
+//        ATC_Request__c atc_request__c1 = sfs.getATC("fddfdsfd");
+//
+//        Assert.assertNotNull(atc_request__c1);
+//
+//        //ATC_Request__c atc_request__c3 = sfs.getATC("fdffgdfgdhfgdhfgdhfgdhfgdjfhgdjfdgfd");
+//
+//
+//    }
+
+
+
+
 }
