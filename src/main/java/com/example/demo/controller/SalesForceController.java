@@ -64,19 +64,15 @@ public class SalesForceController {
 
         if (sourceId.equals(headerSourceId) && token.equals(headerToken)) {
 
-            if(id == null || id.isEmpty() || id.length() > 15 )
-            {
+            if(id == null || id.isEmpty() || id.length() > 15 ) {
                 return new ResponseEntity("-- Something is wrong here --", HttpStatus.NOT_FOUND);
-
             }
             //checking the id is valid or not
             ATC_Request__c atc_request__c = salesForceService.getATC(id);
             if (atc_request__c == null) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-
             return new ResponseEntity<>("--- valid user --- "+atc_request__c , HttpStatus.OK);
-
         }
         return new ResponseEntity<>(" --- not valid user --- ", HttpStatus.UNAUTHORIZED);
     }

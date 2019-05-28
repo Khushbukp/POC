@@ -4,7 +4,6 @@ package com.example.demo.service;
 import com.example.demo.model.ATCModel;
 import com.sforce.soap.enterprise.QueryResult;
 import com.sforce.soap.enterprise.SaveResult;
-import com.sforce.soap.enterprise.fault.UnexpectedErrorFault;
 import com.sforce.soap.enterprise.sobject.ATC_Request__c;
 import com.sforce.soap.enterprise.sobject.SObject;
 import com.sforce.ws.ConnectorConfig;
@@ -57,7 +56,7 @@ public class SalesForceService {
     }
 
     public SaveResult[] upsertATC(ATCModel atcModel) throws Exception{
-        EnterpriseConnection enterpriseConnection= getEnterpriseConnection();
+        enterpriseConnection= getEnterpriseConnection();
         ATC_Request__c atc_request__c = new ATC_Request__c() ;
         atc_request__c.setId(atcModel.getId());
         atc_request__c.setStatus__c(atcModel.getStatus__c());
@@ -74,20 +73,5 @@ public class SalesForceService {
         }
         return saveResults;
     }
-
-    //checking the given id is valid or not..
-//    public ATC_Request__c checkValidIDorNOT(String id) throws Exception {
-//        // invalid id: if id's length is 16 then it will return from here and give the response 404.
-//        if(id.length()>15){
-//            return null;
-//        }
-//
-//        ATC_Request__c atc_request__c = getATC(id);
-//
-//        return atc_request__c;
-//    }
-
-
-
 
 }

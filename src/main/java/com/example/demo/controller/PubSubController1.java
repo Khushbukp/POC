@@ -46,9 +46,9 @@ public class PubSubController1 {
     private static final BlockingQueue<PubsubMessage> messages = new LinkedBlockingDeque<>();
 
 
-    public static void main(String[] args) {
-        SpringApplication.run(PubSubController1.class, args);
-    }
+//    public static void main(String[] args) {
+//        SpringApplication.run(PubSubController1.class, args);
+//    }
 
     @RequestMapping(method=RequestMethod.GET,value="/publish")
     public void publish(@RequestParam String tname,@RequestParam String messageToPublish) throws Exception {
@@ -94,8 +94,6 @@ public class PubSubController1 {
 
     @RequestMapping(method=RequestMethod.GET,value="/receive")
     public void receiveMessage(@RequestParam String topicInfo,@RequestParam String subscriptionInfo) throws InterruptedException, IOException {
-
-
         // set subscriber id, eg. my-sub
         String subscriptionId = createSubscription(topicInfo,subscriptionInfo);
         ProjectSubscriptionName subscriptionName = ProjectSubscriptionName.of(
