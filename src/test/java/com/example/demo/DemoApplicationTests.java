@@ -78,26 +78,4 @@ public class DemoApplicationTests {
 		}
 	}
 
-//	@Test
-//    public void testgetATCById() throws Exception{
-////        EnterpriseConnection enterpriseConnection= getEnterpriseConnection();
-//	    SalesForceService sfs = new SalesForceService();
-//
-//        ATC_Request__c atc_request__c = sfs.getATC("fhdfdsgfdsgh");
-//
-//        Assert.assertEquals(null,atc_request__c);
-//
-//
-//        ATC_Request__c atc_request__c1 = sfs.getATC("fddfdsfd");
-//
-//        Assert.assertNotNull(atc_request__c1);
-//
-//        //ATC_Request__c atc_request__c3 = sfs.getATC("fdffgdfgdhfgdhfgdhfgdhfgdjfhgdjfdgfd");
-//
-//
-//    }
-
-
-
-
 }
